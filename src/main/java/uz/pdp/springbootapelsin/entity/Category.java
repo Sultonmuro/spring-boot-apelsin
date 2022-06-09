@@ -22,6 +22,6 @@ public class Category {
     @Column(nullable = false,length = 250)
     private String name;
 
-    @OneToMany(mappedBy = "Category") //table ochmaslik uchun
+    @OneToMany(mappedBy = "category") //table ochmaslik uchun
     private List<Product> productList;
 }
