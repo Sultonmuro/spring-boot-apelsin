@@ -15,6 +15,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Customer")
 public class Customer {
+    // customer
     @Id //primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

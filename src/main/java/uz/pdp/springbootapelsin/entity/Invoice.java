@@ -28,5 +28,7 @@ public class Invoice {
     private Date issued;
     // xozirga vaqt +3 kun
     private Date due;
+    @OneToOne
+    private  Order order;
 
 }

@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uz.pdp.springbootapelsin.entity.Category;
 import uz.pdp.springbootapelsin.service.CategoryService;
@@ -25,5 +24,22 @@ public class CategoryController {
    model.addAttribute("category",null);
         return "category/add"; //page nomi - > category.html templates da topadi
     }
+@PostMapping("/add")
+    public String getSavePage(@ModelAttribute Category category,Model model){
+return "category/add";
+}
+@GetMapping("/edit/{id}")
+public String getEdtiPage(){return "category/edit";}
+@GetMapping("/edit{id}")
+    public String saveEditPage(@PathVariable Integer id, @ModelAttribute Category category, Model model){
+        categoryService.edit(id,model,category);
+        return "category/list";
 
+}
+
+@GetMapping("/delete/{id}")
+    public String deletePage(@PathVariable Integer id,Model model){
+        categoryService.delete(id,model);
+        return "category/list";
+}
 }
