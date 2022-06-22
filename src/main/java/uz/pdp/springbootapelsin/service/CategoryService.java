@@ -40,4 +40,7 @@ public class CategoryService {
 
         model.addAttribute("list",categoryRepository.findAll());
     }
+
+    public void add(Model model, Category category) {
+    }
 }

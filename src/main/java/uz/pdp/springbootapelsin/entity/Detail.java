@@ -24,4 +24,5 @@ public class Detail {
     @ManyToOne //table ichida uztun yasidi
     @JoinColumn(name="pr_id")
     private Product product;
+    private Integer quantity;
 }

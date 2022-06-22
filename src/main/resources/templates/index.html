@@ -2,11 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Spring boot Apelsin</title>
+    <title>Title</title>
 </head>
 <body>
-<!--thymeleaf-->
+<!--//thymeleaf-->
 <h1>Spring boot Apelsin</h1>
-<a th:href="@{/category/list.html}">Read all Category</a>
+<a th:href="@{/category}"> READ CATEGORY </a>
+<a th:href="@{/category/add}"> ADD CATEGORY</a>
+<hr>
+<br/>
+<a th:href="@{/customer}"> READ  CUSTOMER </a>
+<a th:href="@{/customer/add}"> ADD CUSTOMER</a>
+<hr>
+<br/>
+<a th:href="@{/product}"> READ PRODUCT </a>
+<a th:href="@{/product/add}"> ADD PRODUCT</a>
+<hr>
+<br/>
+<a th:href="@{/order}"> READ ORDER </a>
+<a th:href="@{/order/add}"> ADD ORDER</a>
+<hr>
+<br/>
+<a th:href="@{/payment}"> READ PAYMENT </a>
+<a th:href="@{/payment/add}"> ADD PAYMENT</a>
 </body>
 </html>
