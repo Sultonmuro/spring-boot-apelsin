@@ -40,7 +40,7 @@ public class ProductService {
 //            product.setCategory(category);
 //        }
         //yogini tanlay olmagani un mumkin
-        product.setCategory(categoryRepository.getById(productDto.getCatId()));
+
         productRepository.save(product);
 
         model.addAttribute("list",productRepository.findAll());

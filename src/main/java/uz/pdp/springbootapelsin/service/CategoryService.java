@@ -42,5 +42,9 @@ public class CategoryService {
     }
 
     public void add(Model model, Category category) {
+        Category save = categoryRepository.save(category);
+        if(save!=null){
+
+        }
     }
 }

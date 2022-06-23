@@ -17,4 +17,5 @@ public class PaymentDto {
     private Timestamp timestamp;
     private BigDecimal amount;
     private Integer ord_id;
+    private  Integer inv_id;
 }

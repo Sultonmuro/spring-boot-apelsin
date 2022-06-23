@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import uz.pdp.springbootapelsin.dto.PaymentDto;
+import uz.pdp.springbootapelsin.entity.Invoice;
 import uz.pdp.springbootapelsin.entity.Payment;
 import uz.pdp.springbootapelsin.repository.InvoiceRepository;
 import uz.pdp.springbootapelsin.repository.PaymentRepository;
@@ -27,8 +28,12 @@ public class PaymentService {
     }
 
     public void add(Model model, PaymentDto paymentDto) {
+        Optional<Invoice> byId = invoiceRepository.findById(paymentDto.getInv_id());
         Payment payment = new Payment();
      payment.setAmount(paymentDto.getAmount());
+
+     payment.setTime(paymentDto.getTimestamp());
+
 
         paymentRepository.save(payment);
         model.addAttribute("list",paymentRepository.findAll());

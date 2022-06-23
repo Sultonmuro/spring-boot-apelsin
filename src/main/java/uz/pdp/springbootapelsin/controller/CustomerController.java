@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uz.pdp.springbootapelsin.entity.Customer;
@@ -54,7 +55,7 @@ public class CustomerController {
     }
 
     @PostMapping("/update/{id}")
-    public String update(@PathVariable("id") int id, @RequestBody Customer customer,
+    public String update(@PathVariable("id") int id, @Validated Customer customer,
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
             customer.setId(id);

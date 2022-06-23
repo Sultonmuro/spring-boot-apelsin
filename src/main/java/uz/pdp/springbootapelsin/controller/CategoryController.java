@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,8 +42,8 @@ public class CategoryController {
     }
 
     @GetMapping("/delete/{id}")
-    public String getDeletePage(@PathVariable("id") Integer custId, ModelAndView mv) {
-        categoryService.delete(custId, (Model) mv);
+    public String getDeletePage(@PathVariable("id") Integer custId, Model mv) {
+        categoryService.delete(custId,  mv);
         return "category/list";
     }
 
@@ -56,7 +57,7 @@ public class CategoryController {
     }
 
     @PostMapping("/update/{id}")
-    public String update(@PathVariable("id") int id, @RequestBody Category category,
+    public String update(@PathVariable("id") int id, @Validated Category category,
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
             category.setId(id);
@@ -68,9 +69,5 @@ public class CategoryController {
 
 
 
-//    @GetMapping("/edit/{id}")
-//    public String getEditPage(@PathVariable Integer id,@ModelAttribute Category category, Model model){
-//        categoryService.edit(id,model,category);
-//        return "category/list";
-//    }
+
 }
